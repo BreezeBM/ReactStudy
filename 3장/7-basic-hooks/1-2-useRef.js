@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 export default function App() {
-  const [age, setAge] = useState(20);
+  const [age, setAge] = useState(initialState);
   const prevAgeRef = useRef(20);
   useEffect(() => {
     prevAgeRef.current = age;
