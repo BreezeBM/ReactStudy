@@ -7,7 +7,11 @@ function Greeting() {
     <React.Fragment>
       <p>{`${username}님 안녕하세요`}</p>
       <p>{`인사 횟수: ${helloCount}`}</p>
-      <button onClick={() => setUser({ username, helloCount: helloCount + 1 })}>
+      <button
+        onClick={() =>
+          setUser({ username, helloCount: helloCount + 1 })
+        }
+      >
         인사하기
       </button>
     </React.Fragment>
