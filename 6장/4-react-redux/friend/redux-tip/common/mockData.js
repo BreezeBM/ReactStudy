@@ -7,8 +7,8 @@ const friends = [
 
 const timelines = [
   { desc: "nice lunch", likes: 0 },
-  { desc: "cool", likes: 10 },
-  { desc: "Hello", likes: 20 },
+  { desc: "cool", like: 10 },
+  { desc: "Hello", like: 20 },
   { desc: "Got new", likes: 30 },
 ];
 

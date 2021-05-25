@@ -1,6 +1,6 @@
 import React from "react";
 import { getNextFriend } from "../../common/mockData";
-import { actions } from "../state";
+import { actions, setValue } from "../state";
 import FriendList from "../component/FriendList";
 import { useDispatch, useSelector } from "react-redux";
 import NumberSelect from "../component/NuberSelect";
@@ -58,7 +58,7 @@ export default function FriendMain() {
       />
       <FriendList friends={friendsWithAgeLimit} />
       <NumberSelect
-        onChange={(v) => dispatch(actions.setValue("showLimit", v))}
+        onChange={(v) => dispatch(setValue("showLimit", v))}
         value={showLimit}
         options={SHOW_LIMIT_OPTIONS}
         postfix="명 이하만 보기(연령제한적용)"

@@ -1,15 +1,29 @@
-import { createReducer } from "../common/redux-helper";
+import {
+  createReducer,
+  setValueReducer,
+  createSetValueAction,
+} from "../../common/redux-helper";
+import { MAX_AGE_LIMIT, MAX_SHOW_LIMIT } from "../common";
 
 const ADD = "friend/ADD";
 const REMOVE = "friend/REMOVE";
 const EDIT = "friend/EDIT";
+const SET_AGE_LIMIT = "friend/SET_AGE_LIMIT";
+const SET_SHOW_LIMIT = "friend/SET_SHOW_LIMIT";
+const SET_VALUE = "friend/SET_VALUE";
 
 // action creator 함수
 export const addFriend = (friend) => ({ type: ADD, friend });
 export const removeFriend = (friend) => ({ type: REMOVE, friend });
 export const editFriend = (friend) => ({ type: EDIT, friend });
+export const setValue = createSetValueAction(SET_VALUE);
 
-const INITIAL_STATE = { friends: [] };
+const INITIAL_STATE = {
+  friends: [],
+  ageLimit: MAX_AGE_LIMIT,
+  showLimit: MAX_SHOW_LIMIT,
+  name: "",
+};
 const reducer = createReducer(INITIAL_STATE, {
   [ADD]: (state, action) => state.friends.push(action.friend),
   [REMOVE]: (state, action) =>
@@ -22,6 +36,7 @@ const reducer = createReducer(INITIAL_STATE, {
       state.friends[index] = action.friend;
     }
   },
+  [SET_VALUE]: setValueReducer,
 });
 
 export default reducer;
